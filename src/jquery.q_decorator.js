@@ -15,12 +15,14 @@
             var value = settings.values[i];
             var btn_id = btn_id_prefix + '-buttoninput-' + i;
 
-            var $Btn = $('<button type="button" id="' + btn_id + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
+            var $Btn = $('<button type="button" id="' + btn_id + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '" data-overwrite="' + settings.overwrite + '">' + value + '</button>');
             $Btn.click(function(event) {
                 var value = $(this).data("value");
                 var target = $(this).data("target");
+                var overwrite = $(this).data("overwrite");
                 var $target = $("input[name='" + target + "']");
-                //console.log($(this), value, target, $target);
+
+                console.log(overwrite);
                 if(settings.overwrite){
                     $target.val(value);
                 }else{
