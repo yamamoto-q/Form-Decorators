@@ -59,6 +59,6 @@
         return Plugin;
     };
 
-
+    console.log("onLoadButtoninput");
     $("window").trigger("onLoadButtoninput");
 })(jQuery);
