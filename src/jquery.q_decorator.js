@@ -21,21 +21,21 @@
                 var target = $(this).data("target");
                 var overwrite = $(this).data("overwrite");
                 var $target = $("input[name='" + target + "']");
-
-                console.log(overwrite, typeof overwrite);
                 if(overwrite){
                     $target.val(value);
                 }else{
                     var nowValue = $target.val();
                     var nowValues = nowValue.split(settings.separator);
-                    nowValues.push(value);
-                    $target.val(nowValues.join(settings.separator));
+                    if(nowValues.length > 0){
+                        nowValues.push(value);
+                        $target.val(nowValues.join(settings.separator));
+                    }else{
+                        $target.val(value);
+                    }
                 }
             });
             $me.after($Btn);
         }
-
-
         return Plugin;
     };
 
