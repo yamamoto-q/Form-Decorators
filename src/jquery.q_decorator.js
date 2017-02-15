@@ -14,9 +14,9 @@
         for (var i = 0; i < settings.values.length; i++) {
             var value = settings.values[i];
             var btn_id = btn_id_prefix + '-buttoninput-' + i;
-            $me.after('<button type="button" id="' + btn_id + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
 
-            $('#' + btn_id).click(function(event) {
+            var $Btn = $('<button type="button" id="' + btn_id + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
+            $Btn.click(function(event) {
                 var value = $(this).data("value");
                 var target = $(this).data("target");
                 var $target = $("input[name='" + target + "']");
@@ -30,7 +30,7 @@
                     $target.val(nowValues.join(settings.separator));
                 }
             });
-        
+            $me.after($Btn);
         }
 
 
