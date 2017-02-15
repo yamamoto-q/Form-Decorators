@@ -12,23 +12,25 @@
         for (var i = 0; i < settings.values.length; i++) {
             var value = settings.values[i];
             $me.after('<button type="button" id="' + me_name + '-buttoninput-' + i + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
+
+            $('#' + me_name).click(function(event) {
+                var value = $(this).data("value");
+                var target = $(this).data("target");
+                var $target = $("input[name='" + target + "']");
+                //console.log($(this), value, target, $target);
+                if(settings.overwrite){
+                    $target.val(value);
+                }else{
+                    var nowValue = $target.val();
+                    var nowValues = nowValue.split(settings.separator);
+                    nowValues.push(value);
+                    $target.val(nowValues.join(settings.separator));
+                }
+            });
+        
         }
 
-        $('.buttoninput').click(function(event) {
-            var value = $(this).data("value");
-            var target = $(this).data("target");
-            var $target = $("input[name='" + target + "']");
-            //console.log($(this), value, target, $target);
-            if(settings.overwrite){
-                $target.val(value);
-            }else{
-                var nowValue = $target.val();
-                var nowValues = nowValue.split(settings.separator);
-                nowValues.push(value);
-                $target.val(nowValues.join(settings.separator));
-            }
-        });
-        
+
         return Plugin;
     };
 
