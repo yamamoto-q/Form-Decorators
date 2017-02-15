@@ -40,10 +40,9 @@
         // ** 最初に実行される **
         // 引数が String ではないとき
         $me = $(this);
-        var me_ID = $me.attr("id");
+        var me_name = $me.attr("name");
 
         settings = $.extend({
-            'id': null,
             'overwrite' : false,
             'values' : ['JAPAN', 'USA']
         }, config);
@@ -51,10 +50,9 @@
         console.log(settings);
 
         for (var i = 0; i < settings.values.length; i++) {
-            var value = values[i];
-            $me.after('<button type="button" class="' + me_ID + '-buttoninput" data-value="' + value + '">' + value + '</button>');
+            var value = settings.values[i];
+            $me.after('<button type="button" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
         }
-        
 
         Plugin.methods = _methods;
         $me.data(DATA_KEY, Plugin);// ミソ：エレメントの data-* にプラグインを格納
