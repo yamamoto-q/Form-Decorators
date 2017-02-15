@@ -2,7 +2,8 @@
     var Plugin = $.fn.buttoninput = function(config) {
         $me = $(this);
         var me_name = $me.attr("name");
-        var btn_id_prefix = me_name.replace(/\[|\]/gi, "")
+        var btn_id_prefix = me_name.replace(/\[|\]/gi, "");
+        console.log(btn_id_prefix);
 
         settings = $.extend({
             'overwrite' : false,
