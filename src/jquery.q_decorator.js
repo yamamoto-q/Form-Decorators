@@ -26,7 +26,7 @@
                 }else{
                     var nowValue = $target.val();
                     var nowValues = nowValue.split(settings.separator);
-                    if(nowValues.length > 0){
+                    if(nowValues.length > 1){
                         nowValues.push(value);
                         $target.val(nowValues.join(settings.separator));
                     }else{
