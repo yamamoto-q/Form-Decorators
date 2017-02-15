@@ -2,6 +2,7 @@
     var Plugin = $.fn.buttoninput = function(config) {
         $me = $(this);
         var me_name = $me.attr("name");
+        var btn_id_prefix = me_name.replace(/\[|\]/gi, "")
 
         settings = $.extend({
             'overwrite' : false,
@@ -11,9 +12,10 @@
 
         for (var i = 0; i < settings.values.length; i++) {
             var value = settings.values[i];
-            $me.after('<button type="button" id="' + me_name + '-buttoninput-' + i + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
+            var btn_id = btn_id_prefix + '-buttoninput-' + i;
+            $me.after('<button type="button" id="' + btn_id + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
 
-            $('#' + me_name).click(function(event) {
+            $('#' + btn_id).click(function(event) {
                 var value = $(this).data("value");
                 var target = $(this).data("target");
                 var $target = $("input[name='" + target + "']");
