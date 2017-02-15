@@ -60,5 +60,5 @@
     };
 
     console.log("onLoadButtoninput");
-    $("window").trigger("onLoadButtoninput");
+    jQuery("body").trigger("onLoadButtoninput");
 })(jQuery);
