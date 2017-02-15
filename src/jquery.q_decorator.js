@@ -59,7 +59,7 @@
                 }else{
                     $me.val($me.val + " " + value);
                 }
-            }
+            });
         }
 
         Plugin.methods = _methods;
