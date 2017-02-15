@@ -22,8 +22,8 @@
                 var overwrite = $(this).data("overwrite");
                 var $target = $("input[name='" + target + "']");
 
-                console.log(typeof overwrite);
-                if(overwrite == "true"){
+                console.log(overwrite, typeof overwrite);
+                if(overwrite){
                     $target.val(value);
                 }else{
                     var nowValue = $target.val();
