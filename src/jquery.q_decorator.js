@@ -48,7 +48,7 @@
             'values' : ['JAPAN', 'USA']
         }, config);
 
-
+        console.log(settings);
 
         for (var i = 0; i < settings.values.length; i++) {
             var value = values[i];
