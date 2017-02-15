@@ -54,18 +54,15 @@
         }
 
         $('.buttoninput').click(function(event) {
-            
             var value = $(this).data("value");
             var target = $(this).data("target");
-            
             var $target = $("input[name='" + target + "']");
-
             console.log($(this), value, target, $target);
-
             if(settings.overwrite){
-                    $me.val(value);
+                    $target.val(value);
             }else{
-                    $me.val($me.val + " " + value);
+                var nowValue = $target.val()
+                $target.val(nowValue + " " + value);
             }
         });
 
