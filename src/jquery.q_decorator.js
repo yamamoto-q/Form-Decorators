@@ -51,6 +51,7 @@
             var value = settings.values[i];
             $me.after('<button type="button" id="' + me_name + '-buttoninput-' + i + '" class="' + me_name + '-buttoninput buttoninput" data-value="' + value + '" data-target="' + me_name + '">' + value + '</button>');
             $('#' + me_name + '-buttoninput-' + i).click(function(event) {
+                console.log("click", me_name + '-buttoninput-' + i);
                 var value = $(this).data("value");
                 //var target = $(this).data("target");
                 //var nowValue = $me.val();
