@@ -1,5 +1,4 @@
 (function($) {
-    console.log("loaded");
     var DATA_KEY = "buttoninput", $me, settings;
 
     // 関数のマッピング
@@ -60,4 +59,6 @@
         return Plugin;
     };
 
+
+    $("window").trigger("onLoadButtoninput");
 })(jQuery);
